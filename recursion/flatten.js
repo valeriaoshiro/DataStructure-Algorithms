@@ -6,21 +6,12 @@ flatten([1,[2],[3, [[4]]]]);
 
 var flatten = function(arr){
     var newArr = [];
-    if(!Array.isArray(arr)) newArr.push(arr);
-    else {
-        newArr = arr.pop()flatten()
-    }
-
-
+    arr.forEach(elem => {
+        if(!Array.isArray(elem)) newArr.push(elem);
+        else {
+            newArr = newArr.concat(flatten(elem))
+        }
+    })
     return newArr;
 }
-
 console.log(flatten([1,[2],[3, [[4]]]]));
-
-/*
-{1}
-
-
-
-
-*/
