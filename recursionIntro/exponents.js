@@ -24,8 +24,9 @@
 
 // 08/30/17
 var pow = function(base, expo){
+    if(expo === 0) return 1;
     if(expo === 1) return base;
     return pow(base, expo - 1) * base;
 }
 
-console.log(pow(2,8))
+console.log(pow(2,4))

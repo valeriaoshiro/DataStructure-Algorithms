@@ -13,3 +13,9 @@ var sumDigits = function(num, sum){
 
 
 console.log(sumDigits(1234, 0))
+
+/* 
+function sumDiits(n){
+    if(n===0) return n;
+    return n%10 + sumDigits(Math.floor(n/10))
+}
