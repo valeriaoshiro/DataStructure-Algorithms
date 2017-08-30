@@ -12,4 +12,4 @@ var sumDigits = function(num, sum){
 }
 
 
-console.log(sumDigits(678, 0))
+console.log(sumDigits(1234, 0))
