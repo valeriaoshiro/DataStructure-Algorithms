@@ -24,23 +24,41 @@
 //     return newArr;
 // }
 
-var bubble = function(arr){
-    var newArr = [...arr];
-    var swapped = true;
+// var bubble = function(arr){
+//     var newArr = [...arr];
+//     var swapped = true;
 
+//     while(swapped){
+//         swapped = false;
+//         for(var i = 0; i < newArr.length; i++){
+//             if(newArr[i] > newArr[i+1]){
+//                 var temp = newArr[i];
+//                 newArr[i] = newArr[i+1];
+//                 newArr[i+1] = temp;
+//                 swapped = true;
+//             }
+//         }
+//     }
+
+//     return newArr;
+// }
+
+// 08/31/17
+
+var bubble = function(arr){
+    var swapped = true;
     while(swapped){
         swapped = false;
-        for(var i = 0; i < newArr.length; i++){
-            if(newArr[i] > newArr[i+1]){
-                var temp = newArr[i];
-                newArr[i] = newArr[i+1];
-                newArr[i+1] = temp;
+        for(var i = 0; i < arr.length; i++){
+            if(arr[i] > arr[i+1]){
                 swapped = true;
+                var temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
             }
         }
     }
-
-    return newArr;
+    return arr;
 }
 
 console.log(bubble([1,6,2,4,3,8,9]))
