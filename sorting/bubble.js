@@ -45,20 +45,40 @@
 
 // 08/31/17
 
-var bubble = function(arr){
+// var bubble = function(arr){
+//     var swapped = true;
+//     while(swapped){
+//         swapped = false;
+//         for(var i = 0; i < arr.length; i++){
+//             if(arr[i] > arr[i+1]){
+//                 swapped = true;
+//                 var temp = arr[i];
+//                 arr[i] = arr[i+1];
+//                 arr[i+1] = temp;
+//             }
+//         }
+//     }
+//     return arr;
+// }
+
+// 09/10/17
+
+function bubble(arr){
+    var newArr = [...arr];
     var swapped = true;
-    while(swapped){
+    while (swapped) {
         swapped = false;
-        for(var i = 0; i < arr.length; i++){
-            if(arr[i] > arr[i+1]){
+        for(var i = 0; i < newArr.length - 1; i++){
+            if(newArr[i] > newArr[i+1]){
                 swapped = true;
-                var temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+                var temp = newArr[i];
+                newArr[i] = newArr[i+1];
+                newArr[i+1] = temp;
             }
         }
     }
-    return arr;
+   
+    return newArr;
 }
 
 console.log(bubble([1,6,2,4,3,8,9]))
