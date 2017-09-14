@@ -54,4 +54,3 @@ function insertion(arr){
 
 console.log(insertion([1,6,2,4,3,8,9]));
 console.log(insertion([3,1,2]));
-
