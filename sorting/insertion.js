@@ -38,18 +38,32 @@
 // }
 
 // 09/13/17
+// function insertion(arr){
+//     var newArr = [...arr];
+//     for(var i = 1; i < newArr.length; i++){
+//         var element = newArr[i];
+//         var j = i;
+//         while(j > 0 && (newArr[j - 1] > element)){
+//             newArr[j] = newArr[j-1];
+//             j--;
+//         }
+//         newArr[j] = element;
+//     }
+//     return newArr;
+// }
+
+//09/20/17
 function insertion(arr){
-    var newArr = [...arr];
-    for(var i = 1; i < newArr.length; i++){
-        var element = newArr[i];
+    for(var i = 1; i < arr.length; i++){
+        var element = arr[i];
         var j = i;
-        while(j > 0 && (newArr[j - 1] > element)){
-            newArr[j] = newArr[j-1];
+        while(j > 0 && (arr[j - 1] > element)){
+            arr[j] = arr[j - 1];
             j--;
         }
-        newArr[j] = element;
+        arr[j] = element;
     }
-    return newArr;
+    return arr;
 }
 
 console.log(insertion([1,6,2,4,3,8,9]));
