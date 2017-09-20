@@ -30,37 +30,68 @@
 //     return result;
 // }
 
-console.log(mergeSort([8,4,2,5,3,6,1,9,7]));
+// console.log(mergeSort([8,4,2,5,3,6,1,9,7]));
 
+// function mergeSort(arr){
+//     if(arr.length <= 1) return arr;
+//     var leftHalf = arr.slice(0, arr.length/2);
+//     var rightHalf = arr.slice(arr.length/2);
+//     var sortedLeft = mergeSort(leftHalf);
+//     var sortedRight = mergeSort(rightHalf);
+
+//     return merge(sortedLeft, sortedRight);
+// }
+
+// function merge(left, right){
+//     var result = [];
+//     var iLeft = 0;
+//     var iRight = 0;
+
+//     while(result.length < (left.length + right.length)){
+//         if(iLeft === left.length){
+//             result = result.concat(right.slice(iRight));
+//         } else if(iRight === right.length){
+//             result = result.concat(left.slice(iLeft));
+//         } else if(left[iLeft] <= right[iRight]){
+//             result.push(left[iLeft]);
+//             iLeft++;
+//         } else {
+//             result.push(right[iRight]);
+//             iRight++;
+//         }
+//     }
+
+//     return result;
+
+// }
+
+// 09/20/17
 function mergeSort(arr){
     if(arr.length <= 1) return arr;
-    var leftHalf = arr.slice(0, arr.length/2);
-    var rightHalf = arr.slice(arr.length/2);
-    var sortedLeft = mergeSort(leftHalf);
-    var sortedRight = mergeSort(rightHalf);
-
-    return merge(sortedLeft, sortedRight);
+    var leftHalf = arr.slice(0, arr.length / 2);
+    var rightHalf = arr.slice(arr.length / 2);
+    var leftSorted = mergeSort(leftHalf);
+    var rightSorted = mergeSort(rightHalf);
+    return merge(leftSorted, rightSorted);
 }
 
 function merge(left, right){
-    var result = [];
-    var iLeft = 0;
-    var iRight = 0;
-
-    while(result.length < (left.length + right.length)){
+    var solution = [];
+    var iLeft = 0, iRight = 0;
+    while(left.length + right.length > solution.length){
         if(iLeft === left.length){
-            result = result.concat(right.slice(iRight));
+            solution = solution.concat(right.slice(iRight));
         } else if(iRight === right.length){
-            result = result.concat(left.slice(iLeft));
-        } else if(left[iLeft] <= right[iRight]){
-            result.push(left[iLeft]);
-            iLeft++;
-        } else {
-            result.push(right[iRight]);
+            solution = solution.concat(left.slice(iLeft));
+        } else if(left[iLeft] > right[iRight]){
+            solution.push(right[iRight]);
             iRight++;
+        } else {
+            solution.push(left[iLeft]);
+            iLeft++;
         }
     }
-
-    return result;
-
+    return solution;
 }
+
+console.log(mergeSort([8,4,2,5,3,6,1,9,7]));
